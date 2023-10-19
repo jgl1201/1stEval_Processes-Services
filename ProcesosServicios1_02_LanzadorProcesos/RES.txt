@@ -1,0 +1,5 @@
+El numero de a es: 244
+El numero de e es: 310
+El numero de i es: 119
+El numero de o es: 230
+El numero de u es: 68
