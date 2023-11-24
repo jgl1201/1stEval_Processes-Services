@@ -2,7 +2,8 @@ package Example04_Priority;
 
 import java.util.Random;
 
-public class Athlete implements Runnable {
+@SuppressWarnings("rawtypes")
+public class Athlete implements Runnable, Comparable  {
 	
 	int dorsal;
 	String name;
@@ -26,8 +27,8 @@ public class Athlete implements Runnable {
 	public void run() {
 		System.out.println(this.name + " preparado");
 		Random random = new Random();
-		time = random.nextLong(8000, 12000);
 		long start = System.currentTimeMillis();
+		time = random.nextLong(8000, 12000);
 		
 		try {
 			// min time is 8 seconds and max is 12 seconds
@@ -40,6 +41,12 @@ public class Athlete implements Runnable {
 		long end = System.currentTimeMillis();
 		//this.time = end - start;
 		System.out.println(this.toString());
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Athlete a = (Athlete) o;
+		return (int)(this.time - a.time);
 	}
 	
 	
