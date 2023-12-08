@@ -7,6 +7,7 @@ public class Cola {
 
 	public synchronized int get() {
 		// If there's no product to consume, wait until one is available to consume it
+		// Else it notifys all threads waiting
 		while (!disponible) {
 			try {
 				wait();
@@ -18,8 +19,8 @@ public class Cola {
 	}
 
 	public synchronized void put(int value) {
-		// If there's a product to consume, wait until there's none to produce
-		// anotherone
+		// If there's a product to consume, wait until there's none to produce anotherone
+		// Else it notifys all threads waiting
 		while (disponible) {
 			try {
 				wait();
